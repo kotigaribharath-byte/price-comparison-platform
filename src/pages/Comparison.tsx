@@ -156,9 +156,23 @@ const Comparison: React.FC = () => {
                                                 <img src={product.imageUrl} alt="" style={{ width: '120px', height: '120px', borderRadius: '24px', objectFit: 'cover' }} />
                                                 <div style={{ flex: 1 }}>
                                                     <h3 style={{ fontSize: '24px', marginBottom: '8px' }}>{product.name}</h3>
-                                                    <div style={{ display: 'flex', gap: '8px' }}>
+                                                    <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
                                                         <span className="price-badge badge-best">{bestPrice} BEST</span>
                                                         {saving > 0 && <span className="price-badge" style={{ background: 'rgba(99,102,241,0.1)', color: 'var(--primary)' }}>₹{saving} SAVING</span>}
+                                                    </div>
+                                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                                        {product.specs.map((spec, i) => (
+                                                            <span key={i} style={{
+                                                                fontSize: '11px',
+                                                                background: 'rgba(255,255,255,0.05)',
+                                                                color: 'var(--text-muted)',
+                                                                padding: '4px 8px',
+                                                                borderRadius: '6px',
+                                                                border: '1px solid var(--card-border)'
+                                                            }}>
+                                                                {spec}
+                                                            </span>
+                                                        ))}
                                                     </div>
                                                 </div>
                                             </div>
