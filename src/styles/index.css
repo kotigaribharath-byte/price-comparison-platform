@@ -313,6 +313,82 @@ body {
     color: var(--text-muted);
 }
 
+/* --- Comparison UI --- */
+.comparison-container {
+    padding: 40px 64px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.comparison-header {
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.selection-sidebar {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-select-card {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+}
+
+.product-select-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.product-select-card.selected {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.price-badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-best {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.badge-saving {
+    background: linear-gradient(to right, #6366f1, #a855f7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
 /* --- Animations --- */
 @keyframes fadeInDown {
     from {
