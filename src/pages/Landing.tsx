@@ -106,15 +106,15 @@ const Landing: React.FC = () => {
                     <section className="hero">
                         <div className="hero-content">
                             <h1 className="hero-title">
-                                The Future of<br />
-                                <span>Price Intelligence</span>
+                                Absolute Price<br />
+                                <span>Transparency</span>
                             </h1>
                             <p className="hero-description">
-                                Experience real-time price tracking and cross-retailer comparison powered by advanced machine learning. Never settle for less than the best price.
+                                One search. Every store. The actual best price. Stop jumping between tabs and see the real-time truth behind the price tag instantly.
                             </p>
                             <div className="hero-actions">
-                                <button className="btn-premium btn-primary" onClick={() => navigate('/compare')}>Start Comparing</button>
-                                <button className="btn-premium" style={{ background: 'rgba(255,255,255,0.05)', color: 'white', border: '1px solid rgba(255,255,255,0.1)' }}>View Demo</button>
+                                <button className="btn-premium btn-primary" onClick={() => navigate('/compare')}>Find the Best Deal</button>
+                                <button className="btn-premium" style={{ background: 'rgba(255,255,255,0.05)', color: 'white', border: '1px solid rgba(255,255,255,0.1)' }}>How it Works</button>
                             </div>
                         </div>
 
@@ -128,19 +128,19 @@ const Landing: React.FC = () => {
                     <section className="features" id="features">
                         <div className="features-grid">
                             <div className="feature-card">
-                                <div className="feature-icon">🔍</div>
-                                <h3>Smart Discovery</h3>
-                                <p>Instantly find products across thousands of stores with our high-speed indexing engine.</p>
+                                <div className="feature-icon">🏪</div>
+                                <h3>Store Aggregator</h3>
+                                <p>We crawl thousands of listings across every major retailer to bring you a unified view of the market.</p>
                             </div>
                             <div className="feature-card">
-                                <div className="feature-icon">⚡</div>
-                                <h3>Live Tracking</h3>
-                                <p>Receive millisecond-accurate price updates and instant notifications for price drops.</p>
+                                <div className="feature-icon">⏱️</div>
+                                <h3>The Live Pulse</h3>
+                                <p>Direct from-source updates ensure you see the current price the moment you search, not hours ago.</p>
                             </div>
                             <div className="feature-card">
-                                <div className="feature-icon">🛡️</div>
-                                <h3>Verified Sellers</h3>
-                                <p>We only track trusted retailers to ensure your shopping experience is safe and reliable.</p>
+                                <div className="feature-icon">�</div>
+                                <h3>Truth First</h3>
+                                <p>No sponsored rankings or hidden bias. Just the raw numbers so you can make the right call.</p>
                             </div>
                         </div>
                     </section>
@@ -149,7 +149,7 @@ const Landing: React.FC = () => {
                 <footer className="footer">
                     <div className="footer-content">
                         <div className="footer-logo">PriceCompare</div>
-                        <p className="copyright">&copy; 2025 PriceCompare Intelligence Systems. All rights reserved.</p>
+                        <p className="copyright">&copy; 2025 PriceCompare Transparency Systems. All rights reserved.</p>
                     </div>
                 </footer>
             </div>
