@@ -5,11 +5,14 @@
     --primary-glow: rgba(99, 102, 241, 0.5);
     --accent: #a855f7;
     --bg-dark: #030712;
-    --card-bg: rgba(17, 24, 39, 0.7);
+    --card-bg: rgba(17, 24, 39, 0.6);
     --card-border: rgba(255, 255, 255, 0.08);
-    --glass: rgba(255, 255, 255, 0.03);
+    --glass: rgba(255, 255, 255, 0.02);
+    --glass-heavy: rgba(255, 255, 255, 0.05);
     --text-main: #f9fafb;
     --text-muted: #9ca3af;
+    --text-dim: #6b7280;
+    --success: #22c55e;
 }
 
 * {
@@ -313,117 +316,136 @@ body {
     color: var(--text-muted);
 }
 
-/* --- Comparison UI --- */
-.comparison-container {
-    padding: 40px 64px;
-    max-width: 1400px;
+/* --- Dashboard v2.0 Enhancements --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    padding: 0 64px 64px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
-.comparison-header {
-    margin-bottom: 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.comparison-grid {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 48px;
-    align-items: start;
-}
-
-.selection-sidebar {
+.dashboard-sidebar {
     position: sticky;
-    top: 40px;
+    top: 32px;
+    height: calc(100vh - 64px);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
 }
 
-.product-select-card {
+.category-nav {
     display: flex;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 20px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-items: center;
-}
-
-.product-select-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(99, 102, 241, 0.3);
-}
-
-.product-select-card.selected {
-    border-color: var(--primary);
-    background: rgba(99, 102, 241, 0.1);
-}
-
-.price-badge {
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.badge-best {
-    background: rgba(34, 197, 94, 0.1);
-    color: #22c55e;
-    border: 1px solid rgba(34, 197, 94, 0.2);
-}
-
-.badge-saving {
-    background: linear-gradient(to right, #6366f1, #a855f7);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 12px;
-    font-weight: 800;
-    display: inline-flex;
-    align-items: center;
+    flex-direction: column;
     gap: 8px;
 }
 
-/* --- Animations --- */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.category-item {
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
 }
 
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.category-item:hover {
+    background: var(--glass);
+    color: var(--text-main);
 }
 
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
+.category-item.active {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    border-color: rgba(99, 102, 241, 0.2);
+}
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.product-dashboard-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 36px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    margin-bottom: 32px;
+}
+
+.product-dashboard-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.insight-panel {
+    padding: 40px;
+    border-right: 1px solid var(--card-border);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.battleground-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+.store-listing {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.store-listing:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.store-listing.amazon:hover {
+    border-color: #FF9900;
+}
+
+.store-listing.flipkart:hover {
+    border-color: #2874F0;
+}
+
+.price-display {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 24px 0;
+}
+
+.savings-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    padding: 12px 24px;
+    border-radius: 16px;
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.trust-badge {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    width: fit-content;
 }
 
 @keyframes float {
@@ -432,7 +454,7 @@ body {
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-10px);
     }
 
     100% {
@@ -440,8 +462,30 @@ body {
     }
 }
 
-.float-animation {
+.float-slow {
     animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+    }
+
+    .dashboard-sidebar {
+        position: static;
+        height: auto;
+        margin-bottom: 32px;
+    }
+
+    .product-dashboard-card {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-panel {
+        border-right: none;
+        border-bottom: 1px solid var(--card-border);
+    }
 }
 
 @media (max-width: 1024px) {
