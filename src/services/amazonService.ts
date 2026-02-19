@@ -1,6 +1,5 @@
-import { realProducts } from './realProductData';
+import { fetchAllProducts } from './apiService';
 
 export const fetchAmazonPrices = async () => {
-    // In a real app, this would filter/format for Amazon context
-    return realProducts;
+    return await fetchAllProducts();
 };
