@@ -8,4 +8,5 @@ export interface Product {
     amazonUrl: string;
     flipkartUrl: string;
     specs: string[];
+    category: string;
 }

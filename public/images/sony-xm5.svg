@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headphone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="35" cy="40" r="18" fill="url(#headphone)" stroke="#666" stroke-width="1"/>
+  <circle cx="65" cy="40" r="18" fill="url(#headphone)" stroke="#666" stroke-width="1"/>
+  <path d="M 35 15 Q 50 10 65 15" fill="none" stroke="#444" stroke-width="3" stroke-linecap="round"/>
+  <text x="50" y="80" font-size="8" fill="#666" text-anchor="middle" font-weight="bold">Sony XM5</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="camera" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#222;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect x="15" y="20" width="70" height="60" rx="4" fill="url(#camera)" stroke="#555" stroke-width="1"/>
+  <circle cx="50" cy="50" r="20" fill="#111" stroke="#666" stroke-width="1"/>
+  <circle cx="50" cy="50" r="15" fill="#000"/>
+  <circle cx="58" cy="42" r="3" fill="#444"/>
+  <rect x="20" y="85" width="60" height="4" fill="#555"/>
+  <text x="50" y="98" font-size="8" fill="#666" text-anchor="middle" font-weight="bold">Canon R50</text>
+</svg>

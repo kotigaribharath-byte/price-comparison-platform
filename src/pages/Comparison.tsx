@@ -78,7 +78,7 @@ const Comparison: React.FC = () => {
 
     const filteredProducts = products.filter(p => {
         const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesCategory = activeCategory === 'All' || getCategory(p.name) === activeCategory;
+        const matchesCategory = activeCategory === 'All' || p.category === activeCategory;
         return matchesSearch && matchesCategory;
     });
 
@@ -176,7 +176,7 @@ const Comparison: React.FC = () => {
                                         <div style={{ position: 'relative', width: '100%', height: '200px', marginBottom: '24px', overflow: 'hidden', borderRadius: '24px' }}>
                                             <img src={product.imageUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)', padding: '6px 12px', borderRadius: '8px', fontSize: '10px', fontWeight: '800', color: 'white' }}>
-                                                {getCategory(product.name).toUpperCase()}
+                                                {product.category?.toUpperCase() || 'OTHER'}
                                             </div>
                                         </div>
                                         <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '12px', lineHeight: '1.3' }}>{product.name}</h3>

@@ -8,7 +8,8 @@ const products = [
     {
         id: 'iphone-15',
         name: 'Apple iPhone 15 (128GB) - Black',
-        imageUrl: 'https://m.media-amazon.com/images/I/71657UrqKnL._SX679_.jpg',
+        category: 'Smartphones',
+        imageUrl: 'https://images.unsplash.com/photo-1592286927505-1def25115558?w=400&h=500&fit=crop',
         description: 'The latest iPhone featuring the Dynamic Island, 48MP Main camera, and USB-C.',
         amazonPrice: 71490,
         flipkartPrice: 70999,
@@ -19,7 +20,8 @@ const products = [
     {
         id: 's24-ultra',
         name: 'Samsung Galaxy S24 Ultra (256GB Platinum)',
-        imageUrl: 'https://m.media-amazon.com/images/I/71RVuS3q9LS._SX679_.jpg',
+        category: 'Smartphones',
+        imageUrl: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=500&fit=crop',
         description: 'Elite smartphone with Galaxy AI, Titanium frame, and 200MP camera system.',
         amazonPrice: 129999,
         flipkartPrice: 128500,
@@ -30,7 +32,8 @@ const products = [
     {
         id: 'macbook-m3',
         name: 'Apple MacBook Air M3 (13-inch, 2024)',
-        imageUrl: 'https://m.media-amazon.com/images/I/71f5Eu5lJSL._SX679_.jpg',
+        category: 'Laptops',
+        imageUrl: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop',
         description: 'Thinner, lighter, and faster laptop with the powerful M3 chip.',
         amazonPrice: 114900,
         flipkartPrice: 113500,
@@ -41,7 +44,8 @@ const products = [
     {
         id: 'sony-xm5',
         name: 'Sony WH-1000XM5 Noise Cancelling Headphones',
-        imageUrl: 'https://m.media-amazon.com/images/I/516V7S6A8JL._SX679_.jpg',
+        category: 'Audio',
+        imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
         description: 'Industry-leading noise cancellation with exceptional sound quality.',
         amazonPrice: 29990,
         flipkartPrice: 28990,
@@ -52,7 +56,8 @@ const products = [
     {
         id: 'ipad-air',
         name: 'Apple iPad Air M2 (11-inch, 128GB)',
-        imageUrl: 'https://m.media-amazon.com/images/I/61SNAmpxMGL._SX679_.jpg',
+        category: 'Laptops',
+        imageUrl: 'https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=500&fit=crop',
         description: 'Powerful and versatile tablet for creativity and productivity.',
         amazonPrice: 59900,
         flipkartPrice: 58490,
@@ -63,7 +68,8 @@ const products = [
     {
         id: 'dell-xps',
         name: 'Dell XPS 13 Laptop (9340)',
-        imageUrl: 'https://m.media-amazon.com/images/I/61O+Uu0iJ5L._SX679_.jpg',
+        category: 'Laptops',
+        imageUrl: 'https://images.unsplash.com/photo-1588872657328-8e4438a90a6d?w=600&h=400&fit=crop',
         description: 'The ultimate portable powerhouse with the latest Intel processors.',
         amazonPrice: 139990,
         flipkartPrice: 137500,
@@ -74,7 +80,8 @@ const products = [
     {
         id: 'ps5-slim',
         name: 'Sony PlayStation 5 Slim (CFI-2000)',
-        imageUrl: 'https://m.media-amazon.com/images/I/41mbiBwTojL._SY445_SX342_.jpg',
+        category: 'Gaming',
+        imageUrl: 'https://images.unsplash.com/photo-1606841837239-c5a1a0a90f10?w=400&h=500&fit=crop',
         description: 'Unleash new gaming possibilities with the thinner PS5 model.',
         amazonPrice: 54990,
         flipkartPrice: 53990,
@@ -85,7 +92,8 @@ const products = [
     {
         id: 'canon-r50',
         name: 'Canon EOS R50 Mirrorless Camera',
-        imageUrl: 'https://m.media-amazon.com/images/I/61N60-6H6kL._SX679_.jpg',
+        category: 'Cameras',
+        imageUrl: 'https://images.unsplash.com/photo-1606933248051-5ce41ebbe5b2?w=400&h=400&fit=crop',
         description: 'Compact mirrorless camera for capturing sharp photos and 4K videos.',
         amazonPrice: 71990,
         flipkartPrice: 70500,
@@ -96,7 +104,8 @@ const products = [
     {
         id: 'amazfit-gtr4',
         name: 'Amazfit GTR 4 Smart Watch',
-        imageUrl: 'https://m.media-amazon.com/images/I/61j6X2f72BL._SX679_.jpg',
+        category: 'Wearables',
+        imageUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop',
         description: 'Sports health tracker with dual-band GPS and 14-day battery.',
         amazonPrice: 16999,
         flipkartPrice: 15999,
@@ -107,7 +116,8 @@ const products = [
     {
         id: 'bose-qc-ultra',
         name: 'Bose QuietComfort Ultra Earbuds',
-        imageUrl: 'https://m.media-amazon.com/images/I/51w7pM9jKJL._SX679_.jpg',
+        category: 'Audio',
+        imageUrl: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop',
         description: 'The ultimate noise-cancelling earbuds with world-class performance.',
         amazonPrice: 25900,
         flipkartPrice: 24500,
@@ -121,6 +131,7 @@ db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS products (
         id TEXT PRIMARY KEY,
         name TEXT,
+        category TEXT,
         imageUrl TEXT,
         description TEXT,
         amazonPrice REAL,
@@ -130,10 +141,10 @@ db.serialize(() => {
         specs TEXT
     )`);
 
-    const stmt = db.prepare(`INSERT OR REPLACE INTO products (id, name, imageUrl, description, amazonPrice, flipkartPrice, amazonUrl, flipkartUrl, specs) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`);
+    const stmt = db.prepare(`INSERT OR REPLACE INTO products (id, name, category, imageUrl, description, amazonPrice, flipkartPrice, amazonUrl, flipkartUrl, specs) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
 
     products.forEach(p => {
-        stmt.run(p.id, p.name, p.imageUrl, p.description, p.amazonPrice, p.flipkartPrice, p.amazonUrl, p.flipkartUrl, p.specs);
+        stmt.run(p.id, p.name, p.category, p.imageUrl, p.description, p.amazonPrice, p.flipkartPrice, p.amazonUrl, p.flipkartUrl, p.specs);
     });
 
     stmt.finalize();
